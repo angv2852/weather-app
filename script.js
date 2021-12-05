@@ -39,7 +39,7 @@ function cityTemperature(response) {
   tempElement.innerHTML = `${temperature}°F ${response.data.weather[0].description}`;
   cityName.innerHTML = response.data.name;
   humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = response.data.wind.speed;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   feelsElement.innerHTML = Math.round(response.data.main.feels_like);
 }
 
