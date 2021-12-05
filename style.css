@@ -1,11 +1,14 @@
 body {
   padding: 20px 20px;
   text-align: center;
-  border: solid;
-  border-width: 5px;
   margin: 10px 120px;
   max-width: 40%;
 }
+.container {
+  border: solid;
+  border-width: 5px;
+}
+
 h1,
 p,
 h2,
