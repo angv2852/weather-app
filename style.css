@@ -8,7 +8,9 @@ body {
   border: solid;
   border-width: 5px;
 }
-
+.placeholder {
+  max-width: 40%;
+}
 h1,
 p,
 h2,
