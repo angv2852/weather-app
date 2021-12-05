@@ -1,8 +1,7 @@
 body {
   text-align: center;
   margin: 0 auto;
-  max-width: 500px;
-  text-transform: Capitalize;
+  max-width: 600px;
   padding: 20px;
 }
 h1,
@@ -27,6 +26,9 @@ ul {
 }
 input {
   line-height: 30px;
+}
+body:first-letter {
+  text-transform: capitalize;
 }
 .container {
   border: solid;
