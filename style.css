@@ -4,11 +4,6 @@ body {
   margin: 0 auto;
   max-width: 500px;
 }
-.container {
-  border: solid;
-  border-width: 2px;
-  border-radius: 5px;
-}
 h1,
 p,
 h2,
@@ -32,4 +27,9 @@ ul {
 }
 input {
   line-height: 30px;
+}
+.container {
+  border: solid;
+  border-width: 2px;
+  border-radius: 5px;
 }
