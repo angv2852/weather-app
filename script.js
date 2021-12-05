@@ -11,7 +11,7 @@ let minutes = now.getMinutes();
 if (minutes < 10) {
   minutes = `0${minutes}`;
 }
-p.innerHTML = `${day}, ${hours}:${minutes}`;
+p.innerHTML = `Last updated ${day}, ${hours}:${minutes}`;
 
 function search(event) {
   event.preventDefault();
@@ -30,14 +30,17 @@ let apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?q=Las Vegas&appid=3e4837b1fe633f474ee7c985588f6e07&units=imperial";
 
 function cityTemperature(response) {
+  console.log(response);
   let temperature = Math.round(response.data.main.temp);
   let tempElement = document.querySelector("h2");
   let cityName = document.querySelector("h1");
+  let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let feelsElement = document.querySelector("#feels");
-  tempElement.innerHTML = `${temperature}°F ${response.data.weather[0].description}`;
+  tempElement.innerHTML = `${temperature}°F`;
   cityName.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   feelsElement.innerHTML = Math.round(response.data.main.feels_like);
