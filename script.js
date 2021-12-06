@@ -38,7 +38,7 @@ function cityTemperature(response) {
   let windElement = document.querySelector("#wind");
   let feelsElement = document.querySelector("#feels");
   let iconElement = document.querySelector("#icon");
-  tempElement.innerHTML = `${temperature}°F`;
+  tempElement.innerHTML = `${temperature}`;
   cityName.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
