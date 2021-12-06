@@ -35,3 +35,7 @@ body:first-letter {
   border-width: 2px;
   border-radius: 5px;
 }
+.active,
+.inactive {
+  text-decoration: none;
+}

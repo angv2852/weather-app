@@ -38,6 +38,9 @@ function cityTemperature(response) {
   let windElement = document.querySelector("#wind");
   let feelsElement = document.querySelector("#feels");
   let iconElement = document.querySelector("#icon");
+
+  fahrenheitTemperature = response.data.main.temp;
+
   tempElement.innerHTML = `${temperature}`;
   cityName.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -69,6 +72,17 @@ function getCurrentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
+function showCelsius(event) {
+  event.preventDefault();
+  let celsiusTemperature = Math.round(((fahrenheitTemperature - 32) * 5) / 9);
+  let temperatureElement = document.querySelector("h2");
+  temperatureElement.innerHTML = celsiusTemperature;
+}
+function showFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("h2");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
 
 axios.get(apiUrl).then(cityTemperature);
 
@@ -77,3 +91,11 @@ form.addEventListener("submit", searchCity);
 
 let btn = document.querySelector("#current-btn");
 btn.addEventListener("click", getCurrentPosition);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let fahrenheitTemperature = null;
