@@ -37,5 +37,10 @@ body:first-letter {
 }
 .active,
 .inactive {
+  cursor: default;
+  color: black;
+  text-decoration: none;
+}
+.degrees {
   text-decoration: none;
 }

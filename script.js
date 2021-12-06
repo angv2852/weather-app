@@ -77,11 +77,15 @@ function showCelsius(event) {
   let celsiusTemperature = Math.round(((fahrenheitTemperature - 32) * 5) / 9);
   let temperatureElement = document.querySelector("h2");
   temperatureElement.innerHTML = celsiusTemperature;
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 function showFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("h2");
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
 }
 
 axios.get(apiUrl).then(cityTemperature);
