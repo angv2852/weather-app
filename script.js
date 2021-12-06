@@ -30,7 +30,6 @@ let apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?q=Las Vegas&appid=3e4837b1fe633f474ee7c985588f6e07&units=imperial";
 
 function cityTemperature(response) {
-  console.log(response);
   let temperature = Math.round(response.data.main.temp);
   let tempElement = document.querySelector("h2");
   let cityName = document.querySelector("h1");
@@ -54,8 +53,9 @@ function cityTemperature(response) {
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let resultsUrl =
-    "https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial";
+  let apiKey = "3e4837b1fe633f474ee7c985588f6e07";
+  let resultsUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(cityTemperature);
   console.log(position);
 }
 
@@ -75,8 +75,6 @@ axios.get(apiUrl).then(cityTemperature);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);
-
-navigator.geolocation.getCurrentPosition(showPosition);
 
 let btn = document.querySelector("#current-btn");
 btn.addEventListener("click", getCurrentPosition);
