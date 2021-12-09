@@ -1,7 +1,15 @@
 let now = new Date();
 
 let p = document.querySelector("p");
-let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 let day = days[now.getDay()];
 let hours = now.getHours();
 if (hours < 10) {

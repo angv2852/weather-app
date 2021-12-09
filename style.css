@@ -6,23 +6,25 @@ body {
 }
 h1,
 p,
-h2,
 ul {
   margin-top: 10px;
 }
 h1 {
-  font-size: 35px;
+  font-size: 40px;
 }
 p {
   line-height: 5px;
+  color: #878780;
 }
 h2 {
   line-height: 30px;
+  font-size: 40px;
 }
 ul {
   list-style: none;
   line-height: 35px;
   font-size: 15px;
+  text-transform: capitalize;
 }
 input {
   line-height: 30px;
@@ -43,11 +45,13 @@ body:first-letter {
 }
 .degrees {
   text-decoration: none;
+  margin-top: -25px;
 }
 .weather-forecast {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 25px;
   margin-bottom: 20px;
+  line-height: 5px;
 }
 .forecast-day {
   font-size: 20px;
