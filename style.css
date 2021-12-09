@@ -44,3 +44,11 @@ body:first-letter {
 .degrees {
   text-decoration: none;
 }
+.weather-forecast {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.forecast-day {
+  font-size: 20px;
+}
