@@ -21,7 +21,8 @@ if (minutes < 10) {
 }
 p.innerHTML = `Last updated ${day}, ${hours}:${minutes}`;
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Sat", "Sun", "Mon"];
@@ -53,10 +54,15 @@ function search(event) {
     alert("Please type a city");
   }
 }
-
 let apiKey = "3e4837b1fe633f474ee7c985588f6e07";
 let apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?q=Las Vegas&appid=3e4837b1fe633f474ee7c985588f6e07&units=imperial";
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function cityTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -80,6 +86,8 @@ function cityTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -132,5 +140,3 @@ let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheit);
 
 let fahrenheitTemperature = null;
-
-displayForecast();
